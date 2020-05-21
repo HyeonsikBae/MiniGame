@@ -71,5 +71,6 @@ public class mainClass {
 			if(StrikeCount==LENGTH) break;
 		}
 		System.out.println("Á¤´ä~");
+		scanner.close();
 	}
 }
