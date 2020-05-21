@@ -30,46 +30,53 @@ public class mainClass {
 				}
 			}
 		}
+		sol(answer);
+	}
+	
+	public static void sol(ArrayList<Integer> ans) {
 		
-		//답맞추기
-		while(true){
+		Scanner scanner = new Scanner(System.in);
+		//추측값 저장할 ArrayList 선언
+		//반복문 내 들어갈 경우, remove가 필요 없다.
+		ArrayList<Integer> guess = new ArrayList<>();
+		
+		int strike = 0;
+		int ball = 0;
+		
+		//3 Strike 까지 반복
+		while(strike!=3) {
 			
-			//볼, 스트라이크 카운트 선언 및 초기화
-			int ballCount=0;
-			int StrikeCount=0;
+			strike = 0;
+			ball = 0;
 			
-			//추측 저장할 ArrayList 선언
-			ArrayList<Integer> guess = new ArrayList<>();
-			
-			//ArrayList에 추측값 저장
+			//추측값 입력			
 			System.out.print("숫자를 입력해주세요 : ");
 			for(int i=0;i<LENGTH;i++) {
 				guess.add(scanner.nextInt());
 			}
-		
-			//Ball check
-			for(int item : guess) {
-				if(answer.contains(item)) {
-					ballCount++;
-				}
-			}
-			
-			//Strike check
+			//스트라이크 카운드. 같은자리, 같은값 확인			
 			for(int i=0;i<LENGTH;i++) {
-				if(answer.get(i)==guess.get(i)) {
-					ballCount--;
-					StrikeCount++;
+				if(ans.get(i)==guess.get(i)) {
+					strike++;
 				}
 			}
+			//볼 카운트. 같은값 확인후 스트라이크만큼 감소.
+			for(int item : guess) {
+				if(ans.contains(item)) {
+					ball++;
+				}
+			}
+			ball = ball-strike;
 			
-			//guess, ball, strike 출력
-			System.out.println(guess);
-			System.out.print("볼 : " + ballCount);
-			System.out.println("\t스트라이크 : " + StrikeCount);
+			System.out.println("볼 : "+ball+"\t스트라이크 : "+strike);
 			
-			//3strike면 while문 탈출
-			if(StrikeCount==LENGTH) break;
+			//0번째 인덱스 삭제 3번.
+			//0번이 사라지면 1번이 0번이 되고,2번이 1번이 된다.
+			for(int i=0;i<LENGTH;i++) {
+			guess.remove(0);
+			}
 		}
 		System.out.println("정답~");
+		scanner.close();		
 	}
 }
