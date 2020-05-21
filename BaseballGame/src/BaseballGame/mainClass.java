@@ -13,14 +13,14 @@ public class mainClass {
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 		
-		// ¾ß±¸°ÔÀÓ ÀÚ¸´¼ö ¼±¾ğ
-		System.out.print("¸î±îÁöÀÇ ¼ö¸¦ ¼±ÅÃÇÏ½Ã°Ú½À´Ï±î : ");
+		// ì•¼êµ¬ê²Œì„ ìë¦¿ìˆ˜ ì„ ì–¸
+		System.out.print("ëª‡ê¹Œì§€ì˜ ìˆ˜ë¥¼ ì„ íƒí•˜ì‹œê² ìŠµë‹ˆê¹Œ : ");
 		int number = scanner.nextInt();
 		
-		// ´ä ÀúÀåÇÒ ArrayList »ı¼º
+		// ë‹µ ì €ì¥í•  ArrayList ìƒì„±
 		ArrayList<Integer> answer = new ArrayList<>();
 		
-		// ·£´ıº¯¼ö ArrayList¿¡ ÀúÀå ¹× Áßº¹ ¼öÁ¤
+		// ëœë¤ë³€ìˆ˜ ArrayListì— ì €ì¥ ë° ì¤‘ë³µ ìˆ˜ì •
 		for(int i=0;i<LENGTH;i++) {
 			answer.add(random.nextInt(number)+1);
 			for(int j=0;j<i;j++) {
@@ -36,31 +36,31 @@ public class mainClass {
 	public static void sol(ArrayList<Integer> ans) {
 		
 		Scanner scanner = new Scanner(System.in);
-		//ÃßÃø°ª ÀúÀåÇÒ ArrayList ¼±¾ğ
-		//¹İº¹¹® ³» µé¾î°¥ °æ¿ì, remove°¡ ÇÊ¿ä ¾ø´Ù.
+		//ì¶”ì¸¡ê°’ ì €ì¥í•  ArrayList ì„ ì–¸
+		//ë°˜ë³µë¬¸ ë‚´ ë“¤ì–´ê°ˆ ê²½ìš°, removeê°€ í•„ìš” ì—†ë‹¤.
 		ArrayList<Integer> guess = new ArrayList<>();
 		
 		int strike = 0;
 		int ball = 0;
 		
-		//3 Strike ±îÁö ¹İº¹
+		//3 Strike ê¹Œì§€ ë°˜ë³µ
 		while(strike!=3) {
 			
 			strike = 0;
 			ball = 0;
 			
-			//ÃßÃø°ª ÀÔ·Â			
-			System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+			//ì¶”ì¸¡ê°’ ì…ë ¥			
+			System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 			for(int i=0;i<LENGTH;i++) {
 				guess.add(scanner.nextInt());
 			}
-			//½ºÆ®¶óÀÌÅ© Ä«¿îµå. °°ÀºÀÚ¸®, °°Àº°ª È®ÀÎ			
+			//ìŠ¤íŠ¸ë¼ì´í¬ ì¹´ìš´ë“œ. ê°™ì€ìë¦¬, ê°™ì€ê°’ í™•ì¸			
 			for(int i=0;i<LENGTH;i++) {
 				if(ans.get(i)==guess.get(i)) {
 					strike++;
 				}
 			}
-			//º¼ Ä«¿îÆ®. °°Àº°ª È®ÀÎÈÄ ½ºÆ®¶óÀÌÅ©¸¸Å­ °¨¼Ò.
+			//ë³¼ ì¹´ìš´íŠ¸. ê°™ì€ê°’ í™•ì¸í›„ ìŠ¤íŠ¸ë¼ì´í¬ë§Œí¼ ê°ì†Œ.
 			for(int item : guess) {
 				if(ans.contains(item)) {
 					ball++;
@@ -68,19 +68,15 @@ public class mainClass {
 			}
 			ball = ball-strike;
 			
-			System.out.println("º¼ : "+ball+"\t½ºÆ®¶óÀÌÅ© : "+strike);
+			System.out.println("ë³¼ : "+ball+"\tìŠ¤íŠ¸ë¼ì´í¬ : "+strike);
 			
-			//0¹øÂ° ÀÎµ¦½º »èÁ¦ 3¹ø.
-			//0¹øÀÌ »ç¶óÁö¸é 1¹øÀÌ 0¹øÀÌ µÇ°í,2¹øÀÌ 1¹øÀÌ µÈ´Ù.
+			//0ë²ˆì§¸ ì¸ë±ìŠ¤ ì‚­ì œ 3ë²ˆ.
+			//0ë²ˆì´ ì‚¬ë¼ì§€ë©´ 1ë²ˆì´ 0ë²ˆì´ ë˜ê³ ,2ë²ˆì´ 1ë²ˆì´ ëœë‹¤.
 			for(int i=0;i<LENGTH;i++) {
 			guess.remove(0);
 			}
 		}
-		System.out.println("Á¤´ä~");
-<<<<<<< HEAD
+		System.out.println("ì •ë‹µ~");
 		scanner.close();		
-=======
-		scanner.close();
->>>>>>> 1701baf35e4d15b9237925426f982bae955eee28
 	}
 }
