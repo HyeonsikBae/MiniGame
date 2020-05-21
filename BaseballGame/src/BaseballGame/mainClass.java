@@ -77,6 +77,10 @@ public class mainClass {
 			}
 		}
 		System.out.println("Á¤´ä~");
+<<<<<<< HEAD
 		scanner.close();		
+=======
+		scanner.close();
+>>>>>>> 1701baf35e4d15b9237925426f982bae955eee28
 	}
 }
