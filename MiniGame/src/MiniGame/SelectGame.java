@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class SelectGame {
 	
-	public static final int countGame = 2;//Number Of Game
+	public static final int countGame = 3;//Number Of Game
 	public static int selectGameMethod() {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -13,7 +13,8 @@ public class SelectGame {
 		while(!checkGame) {
 			System.out.println("Select game number for playing (Exit : 0)");
 			System.out.println("1. Baseball Game" + "\n" + 
-							   "2. UpDown Game" + "\n");
+							   "2. UpDown Game" + "\n" +
+							   "3. Dice Game" + "\n");
 			System.out.print("Input : ");
 			selectGame = scanner.nextInt();
 		

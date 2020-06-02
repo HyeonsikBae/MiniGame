@@ -17,10 +17,16 @@ public class mainClass {
 					finish = true;
 					break;
 				case 1: 
-					BaseballGame.main();
+					BaseballGame baseballGame = new BaseballGame();
+					baseballGame.Play();
 					break;
 				case 2:
-					UpdownGame.main();
+					UpdownGame updownGame = new UpdownGame();
+					updownGame.Play();
+					break;
+				case 3:
+					DiceGame diceGame = new DiceGame();
+					diceGame.Play();
 					break;
 			}
 		}
